@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <meta charset="utf-8">
+    <title>Hnefatafl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Hnefatafl</h1>
+<p>A simple interpretation of the Fetlar ruleset</p>
+
+<div class="container">
+    <a href="/">back</a>
+</div>
+
+<div class="container">
+    <ol>
+        <li>
+            Objectives:
+            <ul class="rules-item">
+                <li>White: escape with the King via moving to one of the corner fields.</li>
+                <li>Black: capture the King by surrounding him on all four sides with black pawns.</li>
+            </ul>
+        </li>
+        <li>
+            Movement:
+            <ul class="rules-item">
+                <li>Black moves first, then players take turns - passing is not allowed.</li>
+                <li>All pieces can move on straight lines and are blocked by other pieces.</li>
+                <li>The corner and center tiles are restricted and can only be entered by the King</li>
+            </ul>
+        </li>
+        <li>
+            Capturing:
+            <ul class="rules-item">
+                <li>A piece is captured when it ends up neighboring two hostile pieces horizontally or vertically.</li>
+                <li>Capturing only takes part when the trap is closed as result of the aggressors move - a pawn can by
+                    itself move into the trap without being taken.
+                </li>
+                <li>The corner and center tiles always count as hostile for the purpose of closing a trap.</li>
+            </ul>
+        </li>
+        <li>
+            Controls:
+            <ul class="rules-item">
+                <li>Mouse Left: Select pawn</li>
+                <li>Mouse Right: Commit movement </li>
+                <li>Keyboard R: Reset game server</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+</body>
+</html>

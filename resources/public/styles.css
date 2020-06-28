@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'heorot'; /*a name to be used later*/
+    src: url('/font/heorot.ttf'); /*URL to font*/
+}
+
+body {
+  background-color: #101010;
+  font-family: 'heorot', helvetica, sans-serif;
+  color: gray;
+  text-align: center;
+    font-size: 14pt;
+}
+
+table {
+  color: gray;
+  text-align: left;
+}
+
+li {
+    min-width: 160px;
+    text-align: left;
+    margin: 10px;
+}
+
+.rules-item {
+    width: 320px;
+    text-align: left;
+    margin: 10px;
+}
+
+h1 {
+  color: lightgray;
+}
+
+h2 {
+  color: lightgray;
+}
+
+.container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+td {
+    width: 280px
+}
+
+a {
+    margin: 5px;
+    color: lightgray;
+}
+
+#canvas-container {
+    margin: 20px;
+    text-align: center;
+}
