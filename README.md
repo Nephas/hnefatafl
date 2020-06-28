@@ -1,39 +1,18 @@
 
-# clojure-getting-started
+# Hnefatafl using Clojure and Quil 
 
-A barebones Clojure app, which can easily be deployed to Heroku.  
+Currently running at https://fetlar-hnefatafl.herokuapp.com
 
-This application support the [Getting Started with Clojure](https://devcenter.heroku.com/articles/getting-started-with-clojure) article - check it out.
+## Server
 
-## Running Locally
+Server source code is found in `/src/server` and will be compiled to `/target` using:
 
-Make sure you have Clojure installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+* `lein uberjar`
 
-```sh
-$ git clone https://github.com/heroku/clojure-getting-started.git
-$ cd clojure-getting-started
-$ lein repl
-user=> (require 'clojure-getting-started.web)
-user=>(def server (clojure-getting-started.web/-main))
-```
+To start the server locally on the runtime run `main` from `/src/server/web`.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+## Client
 
-## Deploying to Heroku
+Client source code is stored in `/src/client` and will be compiled to `/resources/public/js` using:
 
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Clojure on Heroku, see these Dev Center articles:
-
-- [Clojure on Heroku](https://devcenter.heroku.com/categories/clojure)
-
+* `lein cljsbuild auto`
