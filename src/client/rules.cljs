@@ -2,17 +2,13 @@
   (:require [client.routing :as r]
             [client.state :as s]))
 
-
-(defn contains? [coll item]
-  (not (empty? (filter #(= % item) coll))))
-
 (defn get-type [game pos]
   (let [{black-pawns :black
          white-pawns :white
          king        :king} game]
-    (cond (contains? black-pawns pos) :black
-          (contains? white-pawns pos) :white
-          (contains? king pos) :king
+    (cond (some #{pos} black-pawns) :black
+          (some #{pos} white-pawns) :white
+          (some #{pos} king) :king
           true nil)))
 
 (defn ascending-range [x1 x2]
@@ -32,7 +28,7 @@
   (nil? (get-type game pos)))
 
 (defn corner? [pos]
-  (contains? s/CORNERS pos))
+  (some #{pos} s/CORNERS))
 
 (defn blocked? [game pos]
   (not (free? game pos)))
@@ -45,9 +41,6 @@
 
 (defn enemy? [game pos]
   (not (own? game pos)))
-
-(defn king? [game pos]
-  (not (= :king (get-type game pos))))
 
 (defn pawn? [game pos]
   (let [type (get-type game pos)]

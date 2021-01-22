@@ -2,17 +2,14 @@
 
 (def CORNERS [[0 0] [0 10] [10 0] [10 10]])
 
-(defn contains? [coll item]
-  (not (empty? (filter #(= % item) coll))))
-
 (defn check-white [pos]
-  (contains? CORNERS pos))
+  (some #{pos} CORNERS))
 
 (defn check-black [pawns [x y]]
-  (and (contains? pawns [x (dec y)])
-       (contains? pawns [x (inc y)])
-       (contains? pawns [(dec x) y])
-       (contains? pawns [(inc x) y])))
+  (and (some #{[x (dec y)]} pawns)
+       (some #{[x (inc y)]} pawns)
+       (some #{[(dec x) y]} pawns)
+       (some #{[(inc x) y]} pawns)))
 
 (defn update-winner [state]
   (let [king (first (:king state))
