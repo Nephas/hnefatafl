@@ -1,14 +1,14 @@
 (ns client.actions
   (:require [client.rules :as b]
-            [client.connect :as c]
+            [client.connect :refer [send]]
             [quil.core :as q]
             [client.state :as s]))
 
 (defn commit! [state]
-  (c/send (str "push " (:game state))))
+  (send (str "push " (:game state))))
 
-(defn reset! []
-  (c/send "reset"))
+(defn restart! []
+  (send "restart"))
 
 (defn handle-move [store event]
   (let [screenpos [(:x event) (:y event)]
@@ -39,4 +39,4 @@
 (defn handle-key [store event]
   (let [key (:key event)]
     (do (println "keypress: " (q/key-code) " - " (:key event))
-        (if (= key :r) (reset!)))))
+        (if (= key :r) (restart!)))))

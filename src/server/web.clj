@@ -8,7 +8,6 @@
             [server.page :as p]
             [server.validation :as v]))
 
-
 (def store (atom {}))
 
 (def channels (atom {}))
@@ -30,7 +29,7 @@
             (http/send! channel (serialize-game id))
             (broadcast-at id msg))
 
-        (str/includes? msg "reset")
+        (str/includes? msg "restart")
         (do (println id "-" msg)
             (initialize-game id)
             (broadcast-at id (serialize-game id)))
@@ -63,5 +62,4 @@
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
     (println (str "http://localhost:" port))
-    (println "https://fetlar-hnefatafl.herokuapp.com")
     (http/run-server routes {:port port})))

@@ -1,18 +1,17 @@
 (ns client.routing
-  (:require [clojure.string :as s]
-            [clojure.string :as str]))
+  (:require [clojure.string :refer [split includes?]]))
 
 (def host (. (. js/document -location) -host))
 (def origin (. (. js/document -location) -origin))
 (def path (. (. js/document -location) -pathname))
 
-(def player-id (cond (s/includes? path "black") :black
-                     (s/includes? path "white") :white))
+(def player-id (cond (includes? path "black") :black
+                     (includes? path "white") :white))
 
 (def game-id (-> path
-                 (str/split #"game/")
+                 (split #"game/")
                  (second)
-                 (str/split #"/")
+                 (split #"/")
                  (first)))
 
 (def secure? (= "https:" (. (. js/document -location) -protocol)))

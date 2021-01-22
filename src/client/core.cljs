@@ -26,9 +26,9 @@
 
              :host "canvas"
 
-             :key-pressed (fn [state event] (a/handle-key store event))
-             :mouse-clicked (fn [state event] (a/handle-click store event))
-             :mouse-moved (fn [state event] (a/handle-move store event))
+             :key-pressed (fn [_ event] (a/handle-key store event))
+             :mouse-clicked (fn [_ event] (a/handle-click store event))
+             :mouse-moved (fn [_ event] (a/handle-move store event))
              :update (fn [] (v/prerender-board))
              :draw (fn [] (v/draw-state store))
 

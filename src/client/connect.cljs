@@ -26,5 +26,5 @@
           (fn [event]
             (let [data (reader/read-string (.-data event))]
               (cond (map? data) (swap! store assoc :game data)
-                    (nil? data) (send "reset")
+                    (nil? data) (send "restart")
                     true (println "string:" data)))))))
