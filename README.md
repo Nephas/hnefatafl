@@ -1,7 +1,9 @@
 
 # Hnefatafl using Clojure and Quil 
 
-Currently running at https://fetlar-hnefatafl.herokuapp.com
+Currently running at 
+* https://fetlar-hnefatafl-dev.herokuapp.com
+* https://fetlar-hnefatafl.herokuapp.com
 
 ## Server
 
